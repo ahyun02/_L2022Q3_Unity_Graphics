@@ -23,9 +23,9 @@ Shader "My/SurfaceShader/UV_Flame2"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {            
-            fixed4 d = tex2D (_MainTex2, float2(IN.uv_MainTex2.x, IN.uv_MainTex2.y - _Time.y)); // <-- 수정
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex + d.r);
-            o.Emission = c.rgb; // <-- 수정
+            fixed4 d = tex2D (_MainTex2, float2(IN.uv_MainTex2.x, IN.uv_MainTex2.y  - _Time.y)); // <-- 수정
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex + d.r * 0.6);
+            o.Emission = c.rgb ; // <-- 수정
             o.Alpha = c.a;
         }
         ENDCG
